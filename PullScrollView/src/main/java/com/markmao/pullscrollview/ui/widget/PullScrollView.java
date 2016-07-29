@@ -138,10 +138,11 @@ public class PullScrollView extends ScrollView {
     }
 
     @Override
-    public boolean onInterceptTouchEvent(MotionEvent ev) {
-        return onTouchEvent(ev) || super.onInterceptTouchEvent(ev);
+       public boolean onInterceptTouchEvent(MotionEvent ev) {
+          //解决点击事件被占用
+        onTouchEvent(ev);
+        return super.onInterceptTouchEvent(ev);
     }
-
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
         if (mContentView != null) {
